@@ -3,7 +3,7 @@ public class Libro{
     private  long numPag;
     private String nombreLibro, editorial;
 
-    private int cont = 0;
+    private static int cont = 0;
 
     public Libro(String nombreLibro, int anioLibro, long numPag, String editorial) {
         this.ID = generarIdUnico();

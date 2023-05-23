@@ -53,6 +53,7 @@ public class Interfaz extends JFrame {
                 try {
                     ArrayList datosQuemados = busqueda.addPredefinido();
                     textAQuemarDatos.setText(String.valueOf(datosQuemados));
+                    btnQuemarDatos.setEnabled(false);
                 }catch (Exception x){
                     JOptionPane.showMessageDialog(null, "Por favor llene los campos con la información necesaria");
                 }
@@ -90,7 +91,7 @@ public class Interfaz extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    String encontrado = busqueda.buscarNombreBusquedaSecuencial(textABuscarNombre.getText());
+                    String encontrado = busqueda.buscarNombreBusquedaSecuencial(textBuscarNombre.getText());
                     textABuscarNombre.setText(encontrado);
                 }catch (Exception x){
                     JOptionPane.showMessageDialog(null, "Por favor llene los campos con la información necesaria");

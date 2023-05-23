@@ -22,7 +22,6 @@ public class Busqueda {
         Libro libro4 = new Libro("Vinland",2013 ,457, "ChavezWalter");
         datosQuemados.add(libro4);
 
-
         libros.addAll(datosQuemados);
         return datosQuemados;
     }
@@ -45,6 +44,7 @@ public class Busqueda {
             if(l.getID()== ID){
                 libros.remove(i);
                 libroRemovido = l.toString();
+                JOptionPane.showMessageDialog(null, "El libro se ha eliminado con éxito");
                 return libroRemovido;
             }
         }
@@ -60,6 +60,7 @@ public class Busqueda {
             if(libro1.getNombreLibro().equals(nombreLibro)){
                 libroRemovido = libro1.toString();
                 libros.remove(i);
+                JOptionPane.showMessageDialog(null, "El libro se ha eliminado con éxito");
                 return libroRemovido;
             }
         }
@@ -69,15 +70,25 @@ public class Busqueda {
 
     public String buscarNombreBusquedaSecuencial(String nombreLibro) {
         String libroEncontrado = "";
-        for (Libro l : libros) {
-            if (l.getNombreLibro().equals(l.getNombreLibro())) {
+        for (Libro libro : libros) {
+            if (libro.getNombreLibro().equals(nombreLibro)) {
                 JOptionPane.showMessageDialog(null, "Se ha encontrado el libro");
-                libroEncontrado = l.toString();
+                libroEncontrado = libro.toString();
                 return libroEncontrado;
             }
         }
         JOptionPane.showMessageDialog(null, "El libro no se ha encontrado");
-        return null;
+        return null;  // Si no se encuentra el libro, se devuelve null
+    }
+
+    private int buscarIndicePorNombre(String nombreLibro) {
+        for (int i = 0; i < libros.size(); i++) {
+            Libro libro = libros.get(i);
+            if (libro.getNombreLibro().equals(nombreLibro)) {
+                return i;
+            }
+        }
+        return -1;  // Si no se encuentra el libro, se devuelve -1
     }
 
     public String buscarIDBusquedaBinario( int ID){
@@ -88,11 +99,11 @@ public class Busqueda {
 
         while (inicio <= fin) {
             int medio = inicio + (fin - inicio) / 2;
-            JOptionPane.showMessageDialog(null, "Se ha encontrado el libro");
             Libro libroMedio = libros.get(medio);
 
             if (libroMedio.getID() == ID) {
                 libroEncontrado = libroMedio.toString();
+                JOptionPane.showMessageDialog(null, "Se ha encontrado el libro");
                 return libroEncontrado;  // Se encontró el libro
             } else if (libroMedio.getID() < ID) {
                 inicio = medio + 1;

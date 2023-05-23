@@ -6,7 +6,7 @@ public class Main {
         interfaz.setContentPane(interfaz.getPrincipal());
         interfaz.setVisible(true);
         interfaz.setTitle("Bibliteca Oscar Almeida, Diego Toscano");
-        interfaz.setBounds(100,100,600,500);
+        interfaz.setBounds(100,100,600,600);
         interfaz.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
